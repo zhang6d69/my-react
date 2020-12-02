@@ -1,6 +1,3 @@
-/*
-老板信息完善的路由容器组件
- */
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
@@ -37,9 +34,8 @@ class LaobanInfo extends Component {
   }
 
   render () {
-    // 如果信息已经完善, 自动重定向到对应主界面
     const {header, type} = this.props.user
-    if(header) { // 说明信息已经完善
+    if(header) { 
       const path = type==='dashen' ? '/dashen' : '/laoban'
       return <Redirect to={path}/>
     }

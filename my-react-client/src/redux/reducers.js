@@ -1,6 +1,3 @@
-/*
-包含n个reducer函数: 根据老的state和指定的action返回一个新的state
- */
 import {combineReducers} from 'redux'
 
 import {
@@ -52,9 +49,9 @@ function userList(state=initUserList, action) {
 }
 
 const initChat = {
-  users: {}, // 所有用户信息的对象  属性名: userid, 属性值是: {username, header}
-  chatMsgs: [], // 当前用户所有相关msg的数组
-  unReadCount: 0 // 总的未读数量
+  users: {}, 
+  chatMsgs: [], 
+  unReadCount: 0 
 }
 
 // 产生聊天状态的reducer
@@ -84,9 +81,9 @@ function chat(state=initChat, action) {
       return {
         users: state.users,
         chatMsgs: state.chatMsgs.map(msg => {
-          if(msg.from===from && msg.to===to && !msg.read) { // 需要更新
+          if(msg.from===from && msg.to===to && !msg.read) {
             return {...msg, read: true}
-          } else {// 不需要
+          } else {
             return msg
           }
         }),
@@ -102,5 +99,5 @@ export default combineReducers({
   userList,
   chat
 })
-// 向外暴露的状态的结构: {user: {}, userList: [], chat: {}}
+
 

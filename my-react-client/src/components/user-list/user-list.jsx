@@ -1,6 +1,3 @@
-/*
-显示指定用户列表的UI组件
- */
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {WingBlank, WhiteSpace, Card} from 'antd-mobile'

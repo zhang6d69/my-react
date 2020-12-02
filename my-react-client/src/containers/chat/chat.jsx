@@ -1,7 +1,3 @@
-/*
-对话聊天的路由组件
- */
-
 import React, {Component} from 'react'
 import {NavBar, List, InputItem, Grid, Icon} from 'antd-mobile'
 import {connect} from 'react-redux'
@@ -16,12 +12,10 @@ class Chat extends Component {
 
   state = {
     content: '',
-    isShow: false // 是否显示表情列表
+    isShow: false 
   }
 
-  // 在第一次render()之前回调
   componentWillMount () {
-    // 初始化表情列表数据
     const emojis = ['😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀'
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'
       ,'😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣','😀', '😁', '🤣'
@@ -41,7 +35,6 @@ class Chat extends Component {
   }
 
   componentWillUnmount () { // 在退出之前
-    // 发请求更新消息的未读状态
     const from = this.props.match.params.userid
     const to = this.props.user._id
     this.props.readMsg(from, to)
@@ -51,7 +44,6 @@ class Chat extends Component {
     const isShow = !this.state.isShow
     this.setState({isShow})
     if(isShow) {
-      // 异步手动派发resize事件,解决表情列表显示的bug
       setTimeout(() => {
         window.dispatchEvent(new Event('resize'))
       }, 0)
@@ -76,8 +68,6 @@ class Chat extends Component {
   render() {
     const {user} = this.props
     const {users, chatMsgs} = this.props.chat
-
-    // 计算当前聊天的chatId
     const meId = user._id
     if(!users[meId]) { // 如果还没有获取数据, 直接不做任何显示
       return null

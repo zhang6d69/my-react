@@ -1,7 +1,3 @@
-/*
-提示找不到页面的UI路由组件
- */
-
 import React from "react"
 import {Button} from "antd-mobile"
 

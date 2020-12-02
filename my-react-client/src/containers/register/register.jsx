@@ -1,7 +1,3 @@
-/*
-注册的路由组件
- */
-
 import React, {Component} from 'react'
 import {
   NavBar,
@@ -38,7 +34,7 @@ class Register extends Component {
   handleChange = (name, val) => {
     // 更新状态
     this.setState({
-      [name]: val  // 属性名不是name, 而是name变量的值
+      [name]: val  
     })
   }
 
@@ -49,14 +45,13 @@ class Register extends Component {
   render() {
     const {type} = this.state
     const {msg, redirectTo} = this.props.user
-    // 如果redirectTo有值, 就需要重定向到指定的路由
     if(redirectTo) {
       return <Redirect to={redirectTo}/>
     }
 
     return (
       <div>
-        <NavBar>硅&nbsp;谷&nbsp;直&nbsp;聘</NavBar>
+        <NavBar>I&nbsp;T&nbsp;招&nbsp;聘</NavBar>
         <Logo/>
         <WingBlank>
           <List>

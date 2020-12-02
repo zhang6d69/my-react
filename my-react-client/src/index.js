@@ -1,9 +1,6 @@
-/*
-入口JS
- */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {HashRouter, Switch, Route,Redirect} from 'react-router-dom'
+import {HashRouter, Switch, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 
 import store from './redux/store'
@@ -13,18 +10,14 @@ import Main from './containers/main/main'
 
 import './assets/css/index.less'
 
-// import './test/socketio_test'
-
 ReactDOM.render((
   <Provider store={store}>
     <HashRouter>
       <Switch>
         <Route path="/register" component={Rigister}/>
-        <Route  component={Login}/>
-        <Route path="/main" component={Main}></Route> {/*默认路由*/}
-        
+        <Route path="/login" component={Login}/>
+        <Route component={Main} /> {/*默认路由*/}
       </Switch>
-      
     </HashRouter>
   </Provider>
 ), document.getElementById('root'))

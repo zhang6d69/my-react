@@ -1,7 +1,3 @@
-/*
-用户个人中心路由组件
- */
-
 import React from 'react'
 import {Result, List, WhiteSpace, Button, Modal} from 'antd-mobile'
 import {connect} from 'react-redux'
@@ -14,16 +10,12 @@ const Brief = Item.Brief
 class Personal extends React.Component {
 
   logout = () => {
-    // alert('-----')
     Modal.alert('退出', '确定退出登陆吗?', [
       {text: '取消'},
       {
         text: '确定',
         onPress: ()=> {
-
-          // 干掉cookie中userid
           Cookies.remove('userid')
-          // 干掉redux管理user
           this.props.resetUser()
         }
       }
